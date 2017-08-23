@@ -1,27 +1,28 @@
+//hak cipta : www.tips-berbagiinfo.blogspot.com/
 var dictionaryUrl='http://www.tips-berbagiinfo.blogspot.com/';var edButtons=new Array();var edLinks=new Array();var edOpenTags=new Array();function edButton(id,display,tagStart,tagEnd,access,open){this.id=id;this.display=display;this.tagStart=tagStart;this.tagEnd=tagEnd;this.access=access;this.open=open;}
-edButtons.push(new edButton('ed_h1','H1','<h1>','</h1>\n\n','1'));edButtons.push(new edButton('ed_h2','H2','<h2>','</h2>\n\n','2'));edButtons.push(new edButton('ed_h3','H3','<h3>','</h3>\n\n','3'));edButtons.push(new edButton('ed_h4','H4','<h4>','</h4>\n\n','4'));edButtons.push(new edButton('ed_p','P','<p>','</p>\n\n','p'));edButtons.push(new edButton('ed_bold','B','<strong>','</strong>','b'));edButtons.push(new edButton('ed_italic','I','<em>','</em>','i'));edButtons.push(new edButton('ed_link','Link','','</a>','a'));edButtons.push(new edButton('ed_img','IMG','','','m',-1));edButtons.push(new edButton('ed_ul','UL','<ul>\n','</ul>\n\n','u'));edButtons.push(new edButton('ed_ol','OL','<ol>\n','</ol>\n\n','o'));edButtons.push(new edButton('ed_li','LI','\t<li>','</li>\n','l'));edButtons.push(new edButton('ed_block','B-QUOTE','<blockquote>','</blockquote>','q'));var extendedStart=edButtons.length;edButtons.push(new edButton('ed_code','CODE','<code>','</code>','c'));edButtons.push(new edButton('ed_pre','PRE','<pre>','</pre>'));edButtons.push(new edButton('ed_dl','DL','<dl>\n','</dl>\n\n'));edButtons.push(new edButton('ed_dt','DT','\t<dt>','</dt>\n'));edButtons.push(new edButton('ed_dd','DD','\t<dd>','</dd>\n'));edButtons.push(new edButton('ed_table','TABLE','<table>\n<tbody>','</tbody>\n</table>\n'));edButtons.push(new edButton('ed_tr','TR','\t<tr>\n','\n\t</tr>\n'));edButtons.push(new edButton('ed_td','TD','\t\t<td>','</td>\n'));edButtons.push(new edButton('ed_footnote','Footnote','','','f'));edButtons.push(new edButton('ed_via','Via','','','v'));function edLink(display,URL,newWin){this.display=display;this.URL=URL;if(!newWin){newWin=0;}
-this.newWin=newWin;}
+edButtons.push(new edButton('ed_h1','H1','<h1>','</h1>\n\n','1'));edButtons.push(new edButton('ed_h2','H2','<h2>','</h2>\n\n','2'));edButtons.push(new edButton('ed_h3','H3','<h3>','</h3>\n\n','3'));edButtons.push(new edButton('ed_h4','H4','<h4>','</h4>\n\n','4'));edButtons.push(new edButton('ed_p','P','<p>','</p>\n\n','p'));edButtons.push(new edButton('ed_bold','B','<strong>','</strong>','b'));edButtons.push(new edButton('ed_italic','I','<em>','</em>','i'));edButtons.push(new edButton('ed_link','Link','','</a>','a'));edButtons.push(new edButton('ed_img','IMG','','','m',-1));edButtons.push(new edButton('ed_ul','UL','<ul>\n','</ul>\n\n','u'));edButtons.push(new edButton('ed_ol','OL','<ol>\n','</ol>\n\n','o'));edButtons.push(new edButton('ed_li','LI','\t<li>','</li>\n','l'));edButtons.push(new edButton('ed_block','B-QUOTE','<blockquote>','</blockquote>','q'));var extendedStart=edButtons.length;edButtons.push(new edButton('ed_code','CODE','<code>','</code>','c'));edButtons.push(new edButton('ed_pre','PRE','<pre>','</pre>'));edButtons.push(new edButton('ed_dl','DL','<dl>\n','</dl>\n\n'));edButtons.push(new edButton('ed_dt','DT','\t<dt>','</dt>\n'));edButtons.push(new edButton('ed_dd','DD','\t<dd>','</dd>\n'));edButtons.push(new edButton('ed_table','TABLE','<table>\n<tbody>','</tbody>\n</table>\n'));edButtons.push(new edButton('ed_tr','TR','\t<tr>\n','\n\t</tr>\n'));edButtons.push(new edButton('ed_td','TD','\t\t<td>','</td>\n'));edButtons.push(new edButton('ed_footnote','Footnote','','','f'));edButtons.push(new edButton('ed_via','Via','','','v'));function edLink(display,URL,newWin){this.display=display;this.URL=URL;if(!newWin){newWin=0;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+this.newWin=newWin;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 edLinks[edLinks.length]=new edLink('alexking.org','http://www.alexking.org/');function edShowButton(which,button,i){if(button.access){var accesskey=' accesskey = "'+ button.access+'"'}
-else{var accesskey='';}
-switch(button.id){case'ed_img':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertImage(\''+ which+'\');" value="'+ button.display+'" />');break;case'ed_link':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertLink(\''+ which+'\', '+ i+');" value="'+ button.display+'" />');break;case'ed_ext_link':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertExtLink(\''+ which+'\', '+ i+');" value="'+ button.display+'" />');break;case'ed_footnote':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertFootnote(\''+ which+'\');" value="'+ button.display+'" />');break;case'ed_via':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertVia(\''+ which+'\');" value="'+ button.display+'" />');break;default:document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertTag(\''+ which+'\', '+ i+');" value="'+ button.display+'"  />');break;}}
+else{var accesskey='';}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+switch(button.id){case'ed_img':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertImage(\''+ which+'\');" value="'+ button.display+'" />');break;case'ed_link':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertLink(\''+ which+'\', '+ i+');" value="'+ button.display+'" />');break;case'ed_ext_link':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertExtLink(\''+ which+'\', '+ i+');" value="'+ button.display+'" />');break;case'ed_footnote':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertFootnote(\''+ which+'\');" value="'+ button.display+'" />');break;case'ed_via':document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertVia(\''+ which+'\');" value="'+ button.display+'" />');break;default:document.write('<input type="button" id="'+ button.id+'_'+ which+'" '+ accesskey+' class="ed_button" onclick="edInsertTag(\''+ which+'\', '+ i+');" value="'+ button.display+'"  />');break;}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edShowLinks(){var tempStr='<select onchange="edQuickLink(this.options[this.selectedIndex].value, this);"><option value="-1" selected>(Quick Links)</option>';for(i=0;i<edLinks.length;i++){tempStr+='<option value="'+ i+'">'+ edLinks[i].display+'</option>';}
-tempStr+='</select>';document.write(tempStr);}
+tempStr+='</select>';document.write(tempStr);}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edAddTag(which,button){if(edButtons[button].tagEnd!=''){edOpenTags[which][edOpenTags[which].length]=button;document.getElementById(edButtons[button].id+'_'+ which).value='/'+ document.getElementById(edButtons[button].id+'_'+ which).value;}}
 function edRemoveTag(which,button){for(i=0;i<edOpenTags[which].length;i++){if(edOpenTags[which][i]==button){edOpenTags[which].splice(i,1);document.getElementById(edButtons[button].id+'_'+ which).value=document.getElementById(edButtons[button].id+'_'+ which).value.replace('/','');}}}
 function edCheckOpenTags(which,button){var tag=0;for(i=0;i<edOpenTags[which].length;i++){if(edOpenTags[which][i]==button){tag++;}}
-if(tag>0){return true;}
-else{return false;}}
+if(tag>0){return true;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+else{return false;}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edCloseAllTags(which){var count=edOpenTags[which].length;for(o=0;o<count;o++){edInsertTag(which,edOpenTags[which][edOpenTags[which].length- 1]);}}
 function edQuickLink(i,thisSelect){if(i>-1){var newWin='';if(edLinks[i].newWin==1){newWin=' target="_blank"';}
-var tempStr='<a href="'+ edLinks[i].URL+'"'+ newWin+'>'
+var tempStr='<a href="'+ edLinks[i].URL+'"'+ newWin+'>'//hak cipta : www.tips-berbagiinfo.blogspot.com/
 + edLinks[i].display
-+'</a>';thisSelect.selectedIndex=0;edInsertContent(edCanvas,tempStr);}
-else{thisSelect.selectedIndex=0;}}
-function edSpell(which){myField=document.getElementById(which);var word='';if(document.selection){myField.focus();var sel=document.selection.createRange();if(sel.text.length>0){word=sel.text;}}
-else if(myField.selectionStart||myField.selectionStart=='0'){var startPos=myField.selectionStart;var endPos=myField.selectionEnd;if(startPos!=endPos){word=myField.value.substring(startPos,endPos);}}
-if(word==''){word=prompt('Enter a word to look up:','');}
-if(word!=''){window.open(dictionaryUrl+ escape(word));}}
-function edToolbar(which){document.write('<div id="ed_toolbar_'+ which+'"><span>');for(i=0;i<extendedStart;i++){edShowButton(which,edButtons[i],i);}
++'</a>';thisSelect.selectedIndex=0;edInsertContent(edCanvas,tempStr);}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+else{thisSelect.selectedIndex=0;}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+function edSpell(which){myField=document.getElementById(which);var word='';if(document.selection){myField.focus();var sel=document.selection.createRange();if(sel.text.length>0){word=sel.text;}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+else if(myField.selectionStart||myField.selectionStart=='0'){var startPos=myField.selectionStart;var endPos=myField.selectionEnd;if(startPos!=endPos){word=myField.value.substring(startPos,endPos);}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+if(word==''){word=prompt('Enter a word to look up:','');}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+if(word!=''){window.open(dictionaryUrl+ escape(word));}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+function edToolbar(which){document.write('<div id="ed_toolbar_'+ which+'"><span>');for(i=0;i<extendedStart;i++){edShowButton(which,edButtons[i],i);}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 if(edShowExtraCookie()){document.write('<input type="button" id="ed_spell_'+ which+'" class="ed_button" onclick="edSpell(\''+ which+'\');" value="Dict" />'
 +'<input type="button" id="ed_extra_show_'+ which+'" class="ed_button" onclick="edShowExtra(\''+ which+'\')" value="&raquo;" style="visibility: hidden;" />'
 +'</span><br />'
@@ -49,47 +50,47 @@ else if(myField.selectionStart||myField.selectionStart=='0'){var startPos=myFiel
 else{if(!edCheckOpenTags(which,i)||edButtons[i].tagEnd==''){myField.value=myField.value.substring(0,startPos)
 + edButtons[i].tagStart
 + myField.value.substring(endPos,myField.value.length);edAddTag(which,i);cursorPos=startPos+ edButtons[i].tagStart.length;}
-else{myField.value=myField.value.substring(0,startPos)
+else{myField.value=myField.value.substring(0,startPos)//hak cipta : www.tips-berbagiinfo.blogspot.com/
 + edButtons[i].tagEnd
 + myField.value.substring(endPos,myField.value.length);edRemoveTag(which,i);cursorPos=startPos+ edButtons[i].tagEnd.length;}}
 myField.focus();myField.selectionStart=cursorPos;myField.selectionEnd=cursorPos;myField.scrollTop=scrollTop;}
 else{if(!edCheckOpenTags(which,i)||edButtons[i].tagEnd==''){myField.value+=edButtons[i].tagStart;edAddTag(which,i);}
 else{myField.value+=edButtons[i].tagEnd;edRemoveTag(which,i);}
-myField.focus();}}
+myField.focus();}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edInsertContent(which,myValue){myField=document.getElementById(which);if(document.selection){myField.focus();sel=document.selection.createRange();sel.text=myValue;myField.focus();}
 else if(myField.selectionStart||myField.selectionStart=='0'){var startPos=myField.selectionStart;var endPos=myField.selectionEnd;var scrollTop=myField.scrollTop;myField.value=myField.value.substring(0,startPos)
 + myValue
 + myField.value.substring(endPos,myField.value.length);myField.focus();myField.selectionStart=startPos+ myValue.length;myField.selectionEnd=startPos+ myValue.length;myField.scrollTop=scrollTop;}else{myField.value+=myValue;myField.focus();}}
 function edInsertLink(which,i,defaultValue){myField=document.getElementById(which);if(!defaultValue){defaultValue='http://';}
 if(!edCheckOpenTags(which,i)){var URL=prompt('Enter the URL',defaultValue);if(URL){edButtons[i].tagStart='<a href="'+ URL+'">';edInsertTag(which,i);}}
-else{edInsertTag(which,i);}}
+else{edInsertTag(which,i);}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edInsertExtLink(which,i,defaultValue){myField=document.getElementById(which);if(!defaultValue){defaultValue='http://';}
 if(!edCheckOpenTags(which,i)){var URL=prompt('Enter the URL',defaultValue);if(URL){edButtons[i].tagStart='<a href="'+ URL+'" rel="external">';edInsertTag(which,i);}}
-else{edInsertTag(which,i);}}
+else{edInsertTag(which,i);}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edInsertImage(which){myField=document.getElementById(which);var myValue=prompt('Enter the URL of the image','http://');if(myValue){myValue='<img src="'
 + myValue
-+'" alt="'+ prompt('Enter a description of the image','')
-+'" />';edInsertContent(which,myValue);}}
-function edInsertFootnote(which){myField=document.getElementById(which);var note=prompt('Enter the footnote:','');if(!note||note==''){return false;}
-var now=new Date;var fnId='fn'+ now.getTime();var fnStart=myField.value.indexOf('<ol class="footnotes">');if(fnStart!=-1){var fnStr1=myField.value.substring(0,fnStart)
-var fnStr2=myField.value.substring(fnStart,myField.value.length)
-var count=countInstances(fnStr2,'<li id="')+ 1;}
-else{var count=1;}
++'" alt="'+ prompt('Enter a description of the image','')//hak cipta : www.tips-berbagiinfo.blogspot.com/
++'" />';edInsertContent(which,myValue);}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+function edInsertFootnote(which){myField=document.getElementById(which);var note=prompt('Enter the footnote:','');if(!note||note==''){return false;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+var now=new Date;var fnId='fn'+ now.getTime();var fnStart=myField.value.indexOf('<ol class="footnotes">');if(fnStart!=-1){var fnStr1=myField.value.substring(0,fnStart)//hak cipta : www.tips-berbagiinfo.blogspot.com/
+var fnStr2=myField.value.substring(fnStart,myField.value.length)//hak cipta : www.tips-berbagiinfo.blogspot.com/
+var count=countInstances(fnStr2,'<li id="')+ 1;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+else{var count=1;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 var count='<sup><a href="#'+ fnId+'n" id="'+ fnId+'" class="footnote">'+ count+'</a></sup>';edInsertContent(which,count);if(fnStart!=-1){fnStr1=myField.value.substring(0,fnStart+ count.length)
 fnStr2=myField.value.substring(fnStart+ count.length,myField.value.length)}
 else{var fnStr1=myField.value;var fnStr2="\n\n"+'<ol class="footnotes">'+"\n"
-+'</ol>'+"\n";}
++'</ol>'+"\n";}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 var footnote='	<li id="'+ fnId+'n">'+ note+' [<a href="#'+ fnId+'">back</a>]</li>'+"\n"
 +'</ol>';myField.value=fnStr1+ fnStr2.replace('</ol>',footnote);}
 function countInstances(string,substr){var count=string.split(substr);return count.length- 1;}
 function edInsertVia(which){myField=document.getElementById(which);var myValue=prompt('Enter the URL of the source link','http://');if(myValue){myValue='(Thanks <a href="'+ myValue+'" rel="external">'
 + prompt('Enter the name of the source','')
-+'</a>)';edInsertContent(which,myValue);}}
++'</a>)';edInsertContent(which,myValue);}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edSetCookie(name,value,expires,path,domain){document.cookie=name+"="+ escape(value)+
 ((expires)?"; expires="+ expires.toGMTString():"")+
 ((path)?"; path="+ path:"")+
-((domain)?"; domain="+ domain:"");}
+((domain)?"; domain="+ domain:"");}//hak cipta : www.tips-berbagiinfo.blogspot.com/
 function edShowExtraCookie(){var cookies=document.cookie.split(';');for(var i=0;i<cookies.length;i++){var cookieData=cookies[i];while(cookieData.charAt(0)==' '){cookieData=cookieData.substring(1,cookieData.length);}
 if(cookieData.indexOf('js_quicktags_extra')==0){if(cookieData.substring(19,cookieData.length)=='show'){return true;}
-else{return false;}}}
-return false;}
+else{return false;}}}//hak cipta : www.tips-berbagiinfo.blogspot.com/
+return false;}//hak cipta : www.tips-berbagiinfo.blogspot.com/
